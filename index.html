@@ -58,7 +58,7 @@
         src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"/>
     </noscript>
     
-    <!-- Google Search Console Verification - REPLACE with your verification code -->
+    <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="uPKMRdeO77VFODIGoVTgpjzNDwtsV29y-oc4qaTt93g">
     
     <style>
@@ -125,6 +125,15 @@
 
         .nav-links a:hover::after {
             width: 100%;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            font-size: 24px;
+            color: #fbba27;
+            cursor: pointer;
+            z-index: 1001;
         }
 
         /* Hero Section */
@@ -341,7 +350,8 @@
         .project-image {
             width: 100%;
             height: 250px;
-            background: linear-gradient(135deg, #fbba27 0%, #ffd700 100%);
+            background-size: cover;
+            background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -601,12 +611,49 @@
             fill: white;
         }
 
-        /* Responsive */
+        /* Responsive Styles */
         @media (max-width: 768px) {
+            /* Navigation */
+            nav {
+                padding: 15px 20px;
+                flex-wrap: wrap;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                position: absolute;
+                top: 70px;
+                left: 0;
+                padding: 20px;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 18px;
+            }
+
+            /* Hero Section */
             .hero {
                 flex-direction: column;
                 text-align: center;
                 padding: 80px 20px 50px;
+                min-height: auto;
+            }
+
+            .hero-content {
+                max-width: 100%;
             }
 
             .hero-content h1 {
@@ -617,20 +664,226 @@
                 font-size: 24px;
             }
 
-            .nav-links {
-                gap: 20px;
+            .hero-content p {
+                font-size: 16px;
+                max-width: 100%;
             }
 
-            nav {
-                padding: 20px;
+            .hero-image img {
+                max-width: 80%;
+                margin-top: 20px;
+            }
+
+            /* Skills Section */
+            .skills {
+                padding: 60px 20px;
             }
 
             .section-title {
                 font-size: 36px;
             }
 
-            .skills, .projects, .reviews, .contact {
+            .skills-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .skill-card {
+                padding: 20px;
+            }
+
+            /* Projects Section */
+            .projects {
                 padding: 60px 20px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            .project-card {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .project-image {
+                height: 200px;
+            }
+
+            .project-content {
+                padding: 20px;
+            }
+
+            .project-content h3 {
+                font-size: 20px;
+            }
+
+            .project-content p {
+                font-size: 14px;
+            }
+
+            /* Reviews Section */
+            .reviews {
+                padding: 60px 20px;
+            }
+
+            .reviews-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                max-width: 100%;
+                overflow-x: hidden;
+            }
+
+            .review-card {
+                padding: 20px;
+            }
+
+            .review-text {
+                font-size: 14px;
+            }
+
+            .reviewer {
+                font-size: 16px;
+            }
+
+            /* Contact Section */
+            .contact {
+                padding: 60px 20px;
+            }
+
+            .contact-container {
+                max-width: 100%;
+            }
+
+            .contact-info p {
+                font-size: 18px;
+            }
+
+            .contact-form {
+                max-width: 100%;
+                padding: 0 10px;
+            }
+
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 14px;
+                padding: 12px 15px;
+            }
+
+            .contact-form-btn {
+                padding: 12px 40px;
+                font-size: 16px;
+            }
+
+            /* Footer */
+            footer {
+                padding: 20px;
+            }
+
+            footer p {
+                font-size: 14px;
+            }
+
+            /* WhatsApp Button */
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-float svg {
+                width: 28px;
+                height: 28px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
+
+            .hamburger {
+                font-size: 20px;
+            }
+
+            .nav-links a {
+                font-size: 16px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-content h2 {
+                font-size: 20px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+            }
+
+            .cta-button {
+                padding: 12px 30px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .section-title::after {
+                width: 80px;
+            }
+
+            .skill-card h3 {
+                font-size: 18px;
+            }
+
+            .skill-card li {
+                font-size: 14px;
+            }
+
+            .project-image {
+                height: 180px;
+            }
+
+            .project-content h3 {
+                font-size: 18px;
+            }
+
+            .project-content p {
+                font-size: 13px;
+            }
+
+            .view-btn {
+                padding: 8px 20px;
+                font-size: 14px;
+            }
+
+            .stars {
+                font-size: 18px;
+            }
+
+            .review-text {
+                font-size: 13px;
+            }
+
+            .reviewer {
+                font-size: 14px;
+            }
+
+            .contact-info p {
+                font-size: 16px;
+            }
+
+            .contact-form-btn {
+                padding: 10px 30px;
+                font-size: 14px;
             }
         }
     </style>
@@ -639,6 +892,7 @@
     <!-- Navigation -->
     <nav>
         <div class="logo">M Rashid</div>
+        <div class="hamburger">☰</div>
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
             <li><a href="#skills">Skills</a></li>
@@ -722,7 +976,7 @@
                 <div class="project-content">
                     <h3>Canadian Politician Party</h3>
                     <p>Developed a modern, responsive WordPress website using Elementor and ACF to dynamically display party member data. The site features a clean design, fast loading speed, and smooth user experience across all devices.</p>
-                    <a href="https://www.bcconservativecaucus.ca/" class="view-btn" target="blank">View Project</a>
+                    <a href="https://www.bcconservativecaucus.ca/" class="view-btn" target="_blank">View Project</a>
                 </div>
             </div>
             <div class="project-card">
@@ -730,7 +984,7 @@
                 <div class="project-content">
                     <h3>News & Media Website</h3>
                     <p>Developed a dynamic news and editorial website, featuring multiple categories for articles and opinion pieces. The site offers a modern, magazine-style design, responsive layout, and optimized performance for seamless reading across all devices.</p>
-                    <a href="confluencedaily.com" class="view-btn" target="blank">View Project</a>
+                    <a href="https://confluencedaily.com" class="view-btn" target="_blank">View Project</a>
                 </div>
             </div>
             <div class="project-card">
@@ -738,7 +992,7 @@
                 <div class="project-content">
                     <h3>Nonprofit / Youth Empowerment Website</h3>
                     <p>Built a responsive, mission-driven site, a nonprofit focused on supporting at-risk, justice-impacted youth. The site features clear calls to action, program descriptions, team profiles, and media updates — all wrapped in a modern, engaging design optimized for performance.</p>
-                    <a href="https://914united.org/" class="view-btn" target="blank">View Project</a>
+                    <a href="https://914united.org/" class="view-btn" target="_blank">View Project</a>
                 </div>
             </div>
             <div class="project-card">
@@ -746,7 +1000,7 @@
                 <div class="project-content">
                     <h3>Nonprofit Organization</h3>
                     <p>SDO, a nonprofit dedicated to empowering marginalized communities in Pakistan. The site features a modern design, user-friendly navigation, and optimized performance, effectively showcasing SDO's initiatives in health, education, water, and livelihood sectors.</p>
-                    <a href="https://sdo.com.pk/" class="view-btn" target="blank">View Project</a>
+                    <a href="https://sdo.com.pk/" class="view-btn" target="_blank">View Project</a>
                 </div>
             </div>
             <div class="project-card">
@@ -754,7 +1008,7 @@
                 <div class="project-content">
                     <h3>BOSA – Political Party</h3>
                     <p>The site features a modern design, user-friendly navigation, and optimized performance, effectively showcasing BOSA's mission, leadership, values, and initiatives aimed at uniting South Africans for a prosperous future.</p>
-                    <a href="https://bosa.co.za" class="view-btn" target="blank">View Project</a>
+                    <a href="https://bosa.co.za" class="view-btn" target="_blank">View Project</a>
                 </div>
             </div>
             <div class="project-card">
@@ -762,7 +1016,7 @@
                 <div class="project-content">
                     <h3>Cricket News & Media Platform</h3>
                     <p>The site features a modern design, optimized performance, and user-friendly navigation, ensuring an engaging experience for cricket enthusiasts across all devices.</p>
-                    <a href="https://crickethit.com/" class="view-btn" target="blank">View Project</a>
+                    <a href="https://crickethit.com/" class="view-btn" target="_blank">View Project</a>
                 </div>
             </div>
         </div>
@@ -780,7 +1034,7 @@
             <div class="review-card">
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"Outstanding work on our e-commerce platform! The site loads incredibly fast and the design is stunning. Highly recommend Muhammad for any WordPress project."</p>
-                <p class="reviewer">- David Martinez, Party Cheif</p>
+                <p class="reviewer">- David Martinez, Party Chief</p>
             </div>
             <div class="review-card">
                 <div class="stars">★★★★★</div>
@@ -812,7 +1066,7 @@
                 <div class="form-group">
                     <select id="service" name="service" required>
                         <option value="">Select Service *</option>
-						<option value="theme-customization">Brand New Website</option>
+                        <option value="brand-new-website">Brand New Website</option>
                         <option value="theme-customization">Theme Customization</option>
                         <option value="speed-optimization">Page Speed Optimization</option>
                         <option value="landing-page">Landing Page Design</option>
@@ -854,6 +1108,11 @@
                 if(target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
+                // Close mobile menu after clicking a link
+                const navLinks = document.querySelector('.nav-links');
+                const hamburger = document.querySelector('.hamburger');
+                navLinks.classList.remove('active');
+                hamburger.textContent = '☰';
             });
         });
 
@@ -879,6 +1138,15 @@
             observer.observe(el);
         });
 
+        // Hamburger Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
         // Contact Form Handling with FormSubmit.co
         const form = document.getElementById('contactForm');
         const formMessage = document.getElementById('formMessage');
@@ -897,7 +1165,7 @@
 
             try {
                 // Using FormSubmit.co - FREE service that sends form data to your email
-                const response = await fetch('https://formsubmit.co/rmrashid4u@gmail.com ', {
+                const response = await fetch('https://formsubmit.co/rmrashid4u@gmail.com', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -937,10 +1205,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
